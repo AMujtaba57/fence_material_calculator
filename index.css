@@ -1,0 +1,19 @@
+.net-column {
+    border: 1px solid #057f39;
+    border-radius: 10px;
+    box-shadow: 0px -5px 3px #057f39;
+}
+.hr-bt-tag {
+	border-bottom: 1px solid gray;
+}
+.hr-top-tag {
+	border-top: 1px solid gray;
+}
+#calculate_btn {
+	width: 200px;
+	background-color: #057f39;
+}
+.result-field {
+	width: 75px;
+	text-align: center;
+}

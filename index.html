@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fence Calculator</title>
+	<link rel="stylesheet" href="index.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<main class="main">
+			<div class="container mt-5 mb-5 net-column">
+				<div class="row d-flex justify-content-center px-5">
+					<div class="col-12 col-md-12 mx-3 d-flex flex-column">
+						<div class="d-flex flex-column py-4 px-3 mt-5 hr-bt-tag">
+                            <h1 class="head-name">Vinyl Fence Material Calculator and Price Estimator</h1>
+                            <p class="d-flex text_under_head">
+                                Estimate the vinyl fence material needed for your project, including vinyl panels, posts, and concrete. The calculator will also generate a price estimate for the materials and locate post center measurements.
+							</p>
+                        </div>
+					</div>
+				</div>
+				<div class="row mt-5 px-5">
+					<div class="d-inline-block col-12 col-md-6 pt-3">
+						<label class="input-label fs-5">Length</label>
+						<div class="">
+							<div class="d-inline-block w-50 input_icon_div">
+								<input type="number" class="form-control input-field" id="length" aria-label="Text input with dropdown button" min="0" oninput="this.value = Math.abs(this.value)">
+							</div>
+							<div class="d-inline-block">
+								<select class="form-select form-select" id="length_param" aria-label="Default select example">
+									<option selected>ft</option>
+									<option value="1">in</option>
+									<option value="2">yd</option>
+									<option value="3">cm</option>
+									<option value="3">m</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="d-inline-block col-12 col-md-6 pt-3">
+						<label class="input-label fs-5">Panel Width</label>
+						<div class="">
+							<div class="d-inline-block w-50">
+								<input type="number" class="form-control" id="panel_width" aria-label="Text input with dropdown button" 
+								min="0" oninput="this.value = Math.abs(this.value)">
+							</div>
+							<div class="d-inline-block">
+								<select class="form-select form-select" id="panel_width_param" aria-label="Default select example">
+									<option selected>ft</option>
+									<option value="1">in</option>
+									<option value="2">yd</option>
+									<option value="3">cm</option>
+									<option value="3">m</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="d-inline-block col-md-6 col-12 pt-3">
+						<label class="input-label fs-5">Post Width</label>
+						<select class="form-select form-select w-50" id="post_width" aria-label="Default select example">
+							<option selected>4" x 4"</option>
+							<option value='5" x 5"'>5" x 5"</option>
+							<option value='6" x 6"'>6" x 6"</option>
+							<option value='8" x 8"'>8" x 8"</option>
+						</select>
+					</div>
+					<div class="d-inline-block col-md-6 col-12 pt-3">
+						<label class="input-label fs-5">End Posts</label>
+						<div class="">
+							<input type="number" class="form-control w-50" id="end_post" aria-label="Text input with dropdown button"
+							min="0" oninput="this.value = Math.abs(this.value)">
+						</div>
+					</div>
+					<div class="d-inline-block col-md-6 col-12 pt-3">
+						<label class="input-label fs-5">Corners</label>
+						<div class="">
+							<input type="number" class="form-control w-50" id="corner" aria-label="Text input with dropdown button"
+							min="0" oninput="this.value = Math.abs(this.value)">
+						</div>
+					</div>
+					<div class="d-inline-block col-12 col-md-6 d-flex pt-5">
+						<div class="cal-btn d-inline-block">
+							<input class="btn btn-primary " id="calculate_btn" type="button" name="Calculate" value="Calculate">
+						</div>
+					</div>
+				</div>
+				<div class="d-flex row mt-5 px-3 text-center">
+					<div class="col-12 row py-4">
+						<span class="py-2" id="error_msg" style="color: red"></span>
+						<div class="float-left d-flex flex-row px-5 hr-top-tag">
+							<h3 class="pt-4">Material Estimate</h3>
+						</div>
+						<div class="col p-3">
+							<input type="" class="result-field" id="fence_panel_result" name="" value="" disabled><br><span class="px-4 fence_panel">8' fence panels</span>
+						</div>
+						<div class="col p-3">
+							<input type="" class="result-field" id="end_post_input" name="" value="" disabled><br><span class="px-4 output_end">4" x 4" end post</span>
+						</div>
+						<div class="col justify-content-center  p-3">
+							<input type="" class="result-field" id="line_post_input" name="" value="" disabled><br><span class="px-4 output_line">4" x 4" line posts</span>
+						</div>
+						<div class="col justify-content-center  p-3">
+							<input type="" class="result-field" id="corner_post_input" name="" value="" disabled><br><span class="px-3 output_corner">4" x 4" corner posts</span>
+						</div>
+						<div class="col justify-content-center  p-3">
+							<input type="" class="result-field" id="post_cap_input" name="" value="" disabled><br><span class="px-4 output_caps">4" x 4" post caps</span>
+						</div>
+						<div class="col justify-content-center  p-3">
+							<input type="" class="result-field" id="bags_post" name="" value="" disabled><br><span class="px-3">bags post concrete</span>
+						</div>
+					</div>
+					<div class="col-12 d-flex flex-row justify-content-between p-5 hr-top-tag">
+						<div class="float-left">
+							<h3 class="">Estimated Material Cost</h3>
+						</div>
+						<div class="float-end">
+							<h3 class="">$1234567</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script>
+		$(document).ready(function(){
+			
+			$("#calculate_btn").click(function(){
+				var length_val = $('#length').val();
+				var type_measure_length = $('#length_param :selected').text()
+			    var panel_width = $('#panel_width').val();
+			    var type_measure_panel = $('#panel_width_param :selected').text()
+			    var post_width = $('#post_width').val();
+			    var end_post = $('#end_post').val();
+			    var corner_val = $('#corner').val();
+
+			    var number_of_panel = 0
+			    var line_post = 0
+			    try {
+			    	if (((length_val != "") && (panel_width != "")) && ((end_post != "") && (corner_val !=""))) {
+			    		$("#error_msg").hide(type_measure_length);
+			    		if ((type_measure_length == 'ft') && (type_measure_panel == 'ft')) {
+			    			number_of_panel = Math.round(length_val/panel_width)
+			    			
+			    		}else if((type_measure_length == 'in') && (type_measure_panel == 'ft')) {
+							number_of_panel = Math.round((length_val*0.08334)/panel_width)
+			    		}else if((type_measure_length == 'ft') && (type_measure_panel == 'in')) {
+							number_of_panel = Math.round(length_val/(panel_width*0.08334))
+			    		}else if((type_measure_length == 'in') && (type_measure_panel == 'in')) {
+							number_of_panel = Math.round((length_val*0.08334)/(panel_width*0.08334))
+			    		}else if ((type_measure_length == 'yd') && (type_measure_panel == 'yd')) {
+			    			number_of_panel = Math.round((length_val*3)/(panel_width*3))	    			
+			    		}else if((type_measure_length == 'yd') && (type_measure_panel == 'ft')) {
+							number_of_panel = Math.round((length_val*3)/panel_width)
+			    		}else if((type_measure_length == 'yd') && (type_measure_panel == 'in')) {
+							number_of_panel = Math.round((length_val*3)/(panel_width*0.08334))
+			    		}else if((type_measure_length == 'in') && (type_measure_panel == 'yd')) {
+							number_of_panel = Math.round((length_val*0.08334)/(panel_width*3))
+			    		}
+			    		
+
+						$("#fence_panel_result").attr("value", number_of_panel);
+			    		$(".fence_panel").html(panel_width + "' fence panels");
+			    		$(".output_end").html(post_width + " end post");
+			    		$(".output_line").html(post_width + " line posts");
+			    		$("#line_post_input").attr("value", line_post);
+			    		$(".output_corner").html(post_width + " corner posts");
+			    		$(".output_caps").html(post_width + " post caps");
+			    		$("#end_post_input").attr("value", end_post);
+			    		$("#post_cap_input").attr("value", number_of_panel+1);
+			    		$("#corner_post_input").attr("value", corner_val);
+			    		$("#bags_post").attr("value", number_of_panel+1);
+			    	} else {
+			    		$("#error_msg").html("<b>invalid input fields</b>")
+			    		$("#error_msg").show();
+			    	}
+
+			    } catch(err) {
+			    	alert(err.message);
+			    }
+			    
+			});
+		});
+	</script>
+</body>
+</html>
