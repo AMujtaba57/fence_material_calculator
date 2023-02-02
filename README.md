@@ -23,5 +23,5 @@ A modern web browser (e.g. Google Chrome, Mozilla Firefox, etc.)
     * jQuery
 
 ## Result
-[vinyl fence display](result/vinyl.png)
+![vinyl fence display](result/vinyl.png)
 
